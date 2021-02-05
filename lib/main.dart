@@ -51,9 +51,8 @@ class MyApp extends StatelessWidget {
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
-        return Directionality(
-          textDirection: TextDirection.rtl,
-          child: Loading(),
+        return MaterialApp(
+          home: Loading(),
         );
       },
     );
