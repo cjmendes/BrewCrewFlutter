@@ -6,14 +6,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:the_net_ninja_app/screens/home/home.dart';
 
 class Wrapper extends StatelessWidget {
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  //final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<CustomUser>(context);
 
     return FutureBuilder(
-      future: _initialization,
+      //future: _initialization,
       builder: (context, snapshot) {
         // return either Home or Authenticate widget
         if (user == null) {

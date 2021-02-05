@@ -3,10 +3,18 @@ import 'package:provider/provider.dart';
 import 'package:the_net_ninja_app/models/user.dart';
 import 'package:the_net_ninja_app/screens/wrapper.dart';
 import 'package:the_net_ninja_app/services/auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(MyApp());
+//void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  //final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -18,3 +26,24 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// Widget build(BuildContext context) {
+//     return FutureBuilder(
+//       // Initialize FlutterFire
+//       future: Firebase.initializeApp(),
+//       builder: (context, snapshot) {
+//         // Check for errors
+//         if (snapshot.hasError) {
+//           return SomethingWentWrong();
+//         }
+
+//         // Once complete, show your application
+//         if (snapshot.connectionState == ConnectionState.done) {
+//           return MyAwesomeApp();
+//         }
+
+//         // Otherwise, show something whilst waiting for initialization to complete
+//         return Loading();
+//       },
+//     );
+//   }
